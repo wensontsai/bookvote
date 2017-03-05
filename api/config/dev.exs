@@ -24,10 +24,11 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :bookvote, Bookvote.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "wensontsai",
-  password: "",
+  # username: "",
+  # password: "",
   database: "bookvote_dev",
   hostname: "localhost",
   pool_size: 10
 
-
+# import credentials
+import_config "dev.secret.exs"
