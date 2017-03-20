@@ -2,6 +2,7 @@ defmodule Bookvote.GenreController do
   use Bookvote.Web, :controller
 
   alias Bookvote.Genre
+  alias Ecto.Adapters.SQL
 
   def index(conn, _params) do
     genres = Repo.all(Genre)
@@ -22,6 +23,12 @@ defmodule Bookvote.GenreController do
         |> put_status(:unprocessable_entity)
         |> render(Bookvote.ChangesetView, "error.json", changeset: changeset)
     end
+  end
+
+  def genreAll(conn, %{"name" => name}) do
+    data = Repo.get_by!(Genre, name: name) 
+      |> Bookvote.Repo.preload([topics: [:books]])
+    render(conn, "genreAll.json", genre: data)
   end
 
   def show(conn, %{"id" => id}) do

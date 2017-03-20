@@ -1,6 +1,8 @@
 defmodule Bookvote.Vote do
   use Bookvote.Web, :model
 
+  @derive [Poison.Encoder]
+
   schema "votes" do
     # field :book_id, :integer
     # field :user_id, :integer
@@ -19,5 +21,6 @@ defmodule Bookvote.Vote do
     struct
     |> cast(params, [:book_id, :user_id, :up_voted])
     |> validate_required([:book_id, :user_id, :up_voted])
+    |> Poison.encode!
   end
 end

@@ -1,6 +1,8 @@
 defmodule Bookvote.User do
   use Bookvote.Web, :model
 
+  @derive [Poison.Encoder]
+
   schema "users" do
     field :username, :string
     field :email, :string
@@ -21,5 +23,6 @@ defmodule Bookvote.User do
     |> validate_required([:username, :email, :token])
     |> unique_constraint(:username)
     |> unique_constraint(:email)
+    |> Poison.encode!
   end
 end

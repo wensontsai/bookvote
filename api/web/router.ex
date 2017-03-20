@@ -20,5 +20,6 @@ defmodule Bookvote.Router do
     resources "/genres", GenreController
     resources "/topics", TopicController
 
+    get "/genreAll/:name", GenreController, :genreAll
   end
 end

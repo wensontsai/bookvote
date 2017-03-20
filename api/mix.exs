@@ -41,6 +41,7 @@ defmodule Bookvote.Mixfile do
      {:ueberauth, "~> 0.3"},
      {:ueberauth_github, "~> 0.4"},
      {:ueberauth_facebook, "~> 0.6"},
+     {:poison, "~> 2.0"},
      {:distillery, "~> 0.10.1"}]
   end
 
