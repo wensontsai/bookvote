@@ -2,6 +2,7 @@
 
 # DEV 
 put ```postgres``` credentials in config/dev.secret.exs
+
 copy dev.secret.sample.exs
 
 To start your Phoenix app:
